@@ -51,14 +51,15 @@ app
 │   └── main.py
 ├── docker_config
 │   ├── config.xml
+│   ├── run_container.sh
 │   ├── create_image.sh
 │   ├── supervisord.conf
 │   └── users.xml
 ├── poetry.lock
 ├── pyproject.toml
 ├── README.md
-├── run.sh
-└── test.py
+├── run_table_creation.sh
+└── run_app.sh
 ```
 
 
