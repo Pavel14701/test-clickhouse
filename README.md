@@ -1,19 +1,15 @@
 # Проект Test Clickhouse выполнение тестового 
 
-## Содержание
-1. [Введение](docs/1_introduction.md)
+### Содержание
+1. *[Введение](README.md)*
 
-2. [Установка и настройка](docs/2_setup.md)
+2. [Техническое задание](docs/2_specification.md)
 
-3. [Техническое задание](docs/3_specification.md)
+3. [Архитектура проекта](docs/3_architecture.md)
 
-4. [Архитектура проекта](docs/4_architecture.md)
+4. [Быстрый старт](docs/4_quick_start.md)
 
-5. [Структура проекта](docs/5_project_structure.md)
-
-6. [Быстрый старт](docs/6_quick_start.md)
-
-7. [Маршруты](docs/7_routes.md)
+5. [Маршруты](docs/5_routes.md)
 
 
 Этот проект демонстрирует работу с Clickhouse, используя Python для загрузки данных, их обработки и визуализации. Следуйте шагам, описанным ниже, для настройки и запуска проекта.
