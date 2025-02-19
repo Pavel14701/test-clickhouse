@@ -74,7 +74,7 @@ app
 2. **Клонируйте репозиторий**
 
     ```sh
-    git clone 
+    git clone https://github.com/Pavel14701/test-clickhouse.git
     ```
 
 3.  **Установите необходимые зависимости**
