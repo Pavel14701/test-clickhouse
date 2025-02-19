@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Обработчики маршрутов (infrastructure.gateways) &mdash; документация Test Clickhouse 0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=490fdf2e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Фабрика сессий ClientSession (infrastructure.request)" href="request.html" />
+    <link rel="prev" title="Фабрика сессий Clickhouse (infrastructure.database)" href="database.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Test Clickhouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../application/interactors.html">Интеракторы (application.interactors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/interfaces.html">Интерфейсы (application.interfaces)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers/http.html">HTTP Контроллеры (controllers.http)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/tables_creation.html"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/tables_creation.html#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Фабрика сессий Clickhouse (infrastructure.database)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Обработчики маршрутов (infrastructure.gateways)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.infrastructure.gateways.CrudsGateway"><code class="docutils literal notranslate"><span class="pre">CrudsGateway</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.CrudsGateway.get_raw_data"><code class="docutils literal notranslate"><span class="pre">CrudsGateway.get_raw_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.CrudsGateway.get_result_table"><code class="docutils literal notranslate"><span class="pre">CrudsGateway.get_result_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.CrudsGateway.save_raw_data"><code class="docutils literal notranslate"><span class="pre">CrudsGateway.save_raw_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.infrastructure.gateways.HttpParserGateway"><code class="docutils literal notranslate"><span class="pre">HttpParserGateway</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.HttpParserGateway.get_data"><code class="docutils literal notranslate"><span class="pre">HttpParserGateway.get_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.infrastructure.gateways.ResponseTableGateway"><code class="docutils literal notranslate"><span class="pre">ResponseTableGateway</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.ResponseTableGateway.create_response_table"><code class="docutils literal notranslate"><span class="pre">ResponseTableGateway.create_response_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.ResponseTableGateway.format_field"><code class="docutils literal notranslate"><span class="pre">ResponseTableGateway.format_field()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.infrastructure.gateways.TablesOptimizerGateway"><code class="docutils literal notranslate"><span class="pre">TablesOptimizerGateway</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_parsed_table"><code class="docutils literal notranslate"><span class="pre">TablesOptimizerGateway.optimize_parsed_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_raw_table"><code class="docutils literal notranslate"><span class="pre">TablesOptimizerGateway.optimize_raw_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.infrastructure.gateways.run_in_thread"><code class="docutils literal notranslate"><span class="pre">run_in_thread()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="request.html">Фабрика сессий ClientSession (infrastructure.request)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Определение типов (infrastructure.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Конфигурация (config)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioc.html">Конфигурация контейнеров DI (ioc)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main.html">Запуск веб приложения (main)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical_specification.html">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical_specification.html#id2">Структура проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Test Clickhouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Обработчики маршрутов (infrastructure.gateways)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/infrastructure/gateways.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-app.src.infrastructure.gateways">
+<span id="infrastructure-gateways"></span><h1>Обработчики маршрутов (infrastructure.gateways)<a class="headerlink" href="#module-app.src.infrastructure.gateways" title="Ссылка на этот заголовок"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.CrudsGateway">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.gateways.</span></span><span class="sig-name descname"><span class="pre">CrudsGateway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.src.infrastructure.gateways.CrudsGateway" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="../application/interfaces.html#app.src.application.interfaces.Cruds" title="app.src.application.interfaces.Cruds"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cruds</span></code></a></p>
+<p>Класс для взаимодействия с базой данных через операции CRUD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Session</em>) – Сессия SQLAlchemy для выполнения запросов.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.CrudsGateway.get_raw_data">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_raw_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema" title="app.src.controllers.schemas.RawJsonSchema"><span class="pre">RawJsonSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.CrudsGateway.get_raw_data" title="Ссылка на это определение"></a></dt>
+<dd><p>Асинхронно получает необработанные данные из таблицы raw_table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Список необработанных данных в формате RawJsonSchema.</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="../controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema" title="app.src.controllers.schemas.RawJsonSchema">RawJsonSchema</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.CrudsGateway.get_result_table">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_result_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../controllers/schemas.html#app.src.controllers.schemas.AstronautSchema" title="app.src.controllers.schemas.AstronautSchema"><span class="pre">AstronautSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.CrudsGateway.get_result_table" title="Ссылка на это определение"></a></dt>
+<dd><p>Асинхронно получает обработанные данные из таблицы parsed_table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Список обработанных данных в формате AstronautSchema.</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="../controllers/schemas.html#app.src.controllers.schemas.AstronautSchema" title="app.src.controllers.schemas.AstronautSchema">AstronautSchema</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.CrudsGateway.save_raw_data">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.CrudsGateway.save_raw_data" title="Ссылка на это определение"></a></dt>
+<dd><p>Асинхронно сохраняет необработанные данные JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>str</em>) – Необработанные данные JSON.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.HttpParserGateway">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.gateways.</span></span><span class="sig-name descname"><span class="pre">HttpParserGateway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientSession</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.src.infrastructure.gateways.HttpParserGateway" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="../application/interfaces.html#app.src.application.interfaces.HttpParser" title="app.src.application.interfaces.HttpParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">HttpParser</span></code></a></p>
+<p>Класс для парсинга данных по HTTP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request_session</strong> (<em>ClientSession</em>) – Сессия aiohttp для выполнения запросов.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.HttpParserGateway.get_data">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.HttpParserGateway.get_data" title="Ссылка на это определение"></a></dt>
+<dd><p>Получает данные по указанному URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – URL для получения данных.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Полученные данные в виде строки.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>aiohttp.ClientResponseError</strong> – Ошибка клиента при получении данных.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.ResponseTableGateway">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.gateways.</span></span><span class="sig-name descname"><span class="pre">ResponseTableGateway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../config.html#app.src.config.TableStyles" title="app.src.config.TableStyles"><span class="pre">TableStyles</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.src.infrastructure.gateways.ResponseTableGateway" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="../application/interfaces.html#app.src.application.interfaces.ResponseTable" title="app.src.application.interfaces.ResponseTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResponseTable</span></code></a></p>
+<p>Класс для создания таблиц ответов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="../config.html#app.src.config.TableStyles" title="app.src.config.TableStyles"><em>TableStyles</em></a>) – Конфигурация стилей таблиц.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.ResponseTableGateway.create_response_table">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_response_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseModel</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.ResponseTableGateway.create_response_table" title="Ссылка на это определение"></a></dt>
+<dd><p>Создает таблицу ответов на основе предоставленной схемы.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>schema</strong> (<em>list</em><em>[</em><em>BaseModel</em><em>]</em>) – Список данных в формате BaseModel.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Таблица ответов в виде строки.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.ResponseTableGateway.format_field">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.ResponseTableGateway.format_field" title="Ссылка на это определение"></a></dt>
+<dd><p>Форматирует значение поля.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<em>str</em>) – Название поля.</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – Значение поля.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Форматированное значение поля.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.TablesOptimizerGateway">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.gateways.</span></span><span class="sig-name descname"><span class="pre">TablesOptimizerGateway</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.src.infrastructure.gateways.TablesOptimizerGateway" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="../application/interfaces.html#app.src.application.interfaces.TablesOptimizer" title="app.src.application.interfaces.TablesOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TablesOptimizer</span></code></a></p>
+<p>Класс для оптимизации таблиц в базе данных ClickHouse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Session</em>) – Сессия SQLAlchemy для выполнения запросов.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_parsed_table">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimize_parsed_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_parsed_table" title="Ссылка на это определение"></a></dt>
+<dd><p>Асинхронно оптимизирует таблицу parsed_table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_raw_table">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimize_raw_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_raw_table" title="Ссылка на это определение"></a></dt>
+<dd><p>Асинхронно оптимизирует таблицу raw_table.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.src.infrastructure.gateways.run_in_thread">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.gateways.</span></span><span class="sig-name descname"><span class="pre">run_in_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="types.html#app.src.infrastructure.types.Z" title="app.src.infrastructure.types.Z"><span class="pre">Z</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseModel</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.gateways.run_in_thread" title="Ссылка на это определение"></a></dt>
+<dd><p>Запускает функцию в отдельном потоке.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>Callable</em><em>[</em><em>...</em><em>, </em><a class="reference internal" href="types.html#app.src.infrastructure.types.Z" title="app.src.infrastructure.types.Z"><em>Z</em></a><em>]</em>) – Функция для выполнения.</p></li>
+<li><p><strong>*args</strong> (<em>Any</em>) – Аргументы для функции.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Результат выполнения функции.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Type[BaseModel]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="database.html" class="btn btn-neutral float-left" title="Фабрика сессий Clickhouse (infrastructure.database)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="request.html" class="btn btn-neutral float-right" title="Фабрика сессий ClientSession (infrastructure.request)" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Pavel Kutsia. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

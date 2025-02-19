@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Добро пожаловать в документацию Test Clickhouse! &mdash; документация Test Clickhouse 0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=490fdf2e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Интеракторы (application.interactors)" href="modules/application/interactors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Test Clickhouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interactors.html">Интеракторы (application.interactors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interfaces.html">Интерфейсы (application.interfaces)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/http.html">HTTP Контроллеры (controllers.http)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/database.html">Фабрика сессий Clickhouse (infrastructure.database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/gateways.html">Обработчики маршрутов (infrastructure.gateways)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/request.html">Фабрика сессий ClientSession (infrastructure.request)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/types.html">Определение типов (infrastructure.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/config.html">Конфигурация (config)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ioc.html">Конфигурация контейнеров DI (ioc)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/main.html">Запуск веб приложения (main)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_specification.html">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_specification.html#id2">Структура проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Test Clickhouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Добро пожаловать в документацию Test Clickhouse!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="test-clickhouse">
+<h1>Добро пожаловать в документацию Test Clickhouse!<a class="headerlink" href="#test-clickhouse" title="Ссылка на этот заголовок"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interactors.html">Интеракторы (application.interactors)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interactors.html#app.src.application.interactors.AddJsonInteractor"><code class="docutils literal notranslate"><span class="pre">AddJsonInteractor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interactors.html#app.src.application.interactors.GetParsedDataInteractor"><code class="docutils literal notranslate"><span class="pre">GetParsedDataInteractor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interfaces.html">Интерфейсы (application.interfaces)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interfaces.html#app.src.application.interfaces.ClientSessionGenerator"><code class="docutils literal notranslate"><span class="pre">ClientSessionGenerator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interfaces.html#app.src.application.interfaces.Cruds"><code class="docutils literal notranslate"><span class="pre">Cruds</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interfaces.html#app.src.application.interfaces.HttpParser"><code class="docutils literal notranslate"><span class="pre">HttpParser</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interfaces.html#app.src.application.interfaces.ResponseTable"><code class="docutils literal notranslate"><span class="pre">ResponseTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interfaces.html#app.src.application.interfaces.TablesOptimizer"><code class="docutils literal notranslate"><span class="pre">TablesOptimizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/application/interfaces.html#app.src.application.interfaces.UrlGetter"><code class="docutils literal notranslate"><span class="pre">UrlGetter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/http.html">HTTP Контроллеры (controllers.http)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/controllers/http.html#app.src.controllers.http.Controllers"><code class="docutils literal notranslate"><span class="pre">Controllers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema"><code class="docutils literal notranslate"><span class="pre">AstronautSchema</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema"><code class="docutils literal notranslate"><span class="pre">RawJsonSchema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/database.html">Фабрика сессий Clickhouse (infrastructure.database)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/database.html#app.src.infrastructure.database.new_session_maker"><code class="docutils literal notranslate"><span class="pre">new_session_maker()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/gateways.html">Обработчики маршрутов (infrastructure.gateways)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.CrudsGateway"><code class="docutils literal notranslate"><span class="pre">CrudsGateway</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.HttpParserGateway"><code class="docutils literal notranslate"><span class="pre">HttpParserGateway</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.ResponseTableGateway"><code class="docutils literal notranslate"><span class="pre">ResponseTableGateway</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.TablesOptimizerGateway"><code class="docutils literal notranslate"><span class="pre">TablesOptimizerGateway</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.run_in_thread"><code class="docutils literal notranslate"><span class="pre">run_in_thread()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/request.html">Фабрика сессий ClientSession (infrastructure.request)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/request.html#app.src.infrastructure.request.SessionManager"><code class="docutils literal notranslate"><span class="pre">SessionManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/request.html#app.src.infrastructure.request.new_request_session_maker"><code class="docutils literal notranslate"><span class="pre">new_request_session_maker()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/types.html">Определение типов (infrastructure.types)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/types.html#app.src.infrastructure.types.F"><code class="docutils literal notranslate"><span class="pre">F</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/types.html#app.src.infrastructure.types.T"><code class="docutils literal notranslate"><span class="pre">T</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/infrastructure/types.html#app.src.infrastructure.types.Z"><code class="docutils literal notranslate"><span class="pre">Z</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/config.html">Конфигурация (config)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/config.html#app.src.config.AppConfig"><code class="docutils literal notranslate"><span class="pre">AppConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/config.html#app.src.config.ClickhouseConfig"><code class="docutils literal notranslate"><span class="pre">ClickhouseConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/config.html#app.src.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/config.html#app.src.config.RequestsConfig"><code class="docutils literal notranslate"><span class="pre">RequestsConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/config.html#app.src.config.RetriesConfig"><code class="docutils literal notranslate"><span class="pre">RetriesConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/config.html#app.src.config.TableStyles"><code class="docutils literal notranslate"><span class="pre">TableStyles</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ioc.html">Конфигурация контейнеров DI (ioc)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/ioc.html#app.src.ioc.AppProvider"><code class="docutils literal notranslate"><span class="pre">AppProvider</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/ioc.html#app.src.ioc.MigrationsProvider"><code class="docutils literal notranslate"><span class="pre">MigrationsProvider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/main.html">Запуск веб приложения (main)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/main.html#app.src.main.get_aiohttp_app"><code class="docutils literal notranslate"><span class="pre">get_aiohttp_app()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/main.html#app.src.main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/main.html#app.src.main.on_shutdown"><code class="docutils literal notranslate"><span class="pre">on_shutdown()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_specification.html">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_specification.html#id2">Структура проекта</a></li>
+</ul>
+</div>
+</section>
+<section id="id1">
+<h1>Индексы и таблицы<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Алфавитный указатель</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Состав модуля</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Поиск</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="modules/application/interactors.html" class="btn btn-neutral float-right" title="Интеракторы (application.interactors)" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Pavel Kutsia. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

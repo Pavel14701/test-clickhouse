@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Техническое задание &mdash; документация Test Clickhouse 0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=490fdf2e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="Быстрый старт" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Test Clickhouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interactors.html">Интеракторы (application.interactors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interfaces.html">Интерфейсы (application.interfaces)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/http.html">HTTP Контроллеры (controllers.http)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/database.html">Фабрика сессий Clickhouse (infrastructure.database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/gateways.html">Обработчики маршрутов (infrastructure.gateways)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/request.html">Фабрика сессий ClientSession (infrastructure.request)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/types.html">Определение типов (infrastructure.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/config.html">Конфигурация (config)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ioc.html">Конфигурация контейнеров DI (ioc)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/main.html">Запуск веб приложения (main)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Структура проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Test Clickhouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Техническое задание</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/technical_specification.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Техническое задание<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>В этом разделе представлено техническое задание для проекта Test Clickhouse.</p>
+<p>## Общие сведения</p>
+<p>Проект Test Clickhouse предназначен для работы с базой данных Clickhouse. Он включает следующие модули и компоненты:</p>
+<ul class="simple">
+<li><p><cite>application</cite>: Основная логика приложения</p></li>
+<li><p><cite>config</cite>: Конфигурация проекта</p></li>
+<li><p><cite>controllers</cite>: Контроллеры для обработки HTTP-запросов</p></li>
+<li><p><cite>infrastructure</cite>: Инфраструктурные компоненты, такие как работа с базой данных</p></li>
+<li><p><cite>main</cite>: Точка входа в приложение</p></li>
+</ul>
+<p>## Требования</p>
+<ul class="simple">
+<li><p>Python 3.12</p></li>
+<li><p>Poetry для управления зависимостями</p></li>
+<li><p>База данных Clickhouse</p></li>
+</ul>
+<p>## Архитектура</p>
+<p>Проект организован в виде модулей и пакетов, как показано ниже:</p>
+</section>
+<section id="id2">
+<h1>Структура проекта<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">app</span>
+<span class="pre">├──</span> <span class="pre">src</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">application</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">__init__.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">interactors.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">interfaces.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">config.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">controllers</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">http.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">__init__.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">└──</span> <span class="pre">schemas.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">infrastructure</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">database.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">gateways.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">__init__.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">models</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">__init__.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">└──</span> <span class="pre">tables_creation.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">request.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">│</span>&#160;&#160; <span class="pre">└──</span> <span class="pre">types.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">├──</span> <span class="pre">ioc.py</span>
+<span class="pre">│</span>&#160;&#160; <span class="pre">└──</span> <span class="pre">main.py</span>
+<span class="pre">├──</span> <span class="pre">docker_config</span>
+<span class="pre">│  </span> <span class="pre">├──</span> <span class="pre">config.xml</span>
+<span class="pre">│  </span> <span class="pre">├──</span> <span class="pre">create_image.sh</span>
+<span class="pre">│  </span> <span class="pre">├──</span> <span class="pre">supervisord.conf</span>
+<span class="pre">│  </span> <span class="pre">└──</span> <span class="pre">users.xml</span>
+<span class="pre">├──</span> <span class="pre">poetry.lock</span>
+<span class="pre">├──</span> <span class="pre">pyproject.toml</span>
+<span class="pre">├──</span> <span class="pre">README.md</span>
+<span class="pre">├──</span> <span class="pre">run.sh</span>
+<span class="pre">└──</span> <span class="pre">test.py</span>
+<span class="pre">`</span></code></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Быстрый старт" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Pavel Kutsia. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

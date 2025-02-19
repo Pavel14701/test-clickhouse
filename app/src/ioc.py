@@ -35,7 +35,7 @@ class MigrationsProvider(Provider):
     config = from_context(provides=Config, scope=Scope.APP)
 
     @provide(scope=Scope.APP)
-    def get_session_maker(
+    def sync_get_session_maker(
         self, 
         config: Config
     ) -> sessionmaker[Session]:
@@ -51,7 +51,7 @@ class MigrationsProvider(Provider):
         return new_session_maker(config.clickhouse)
 
     @provide(scope=Scope.REQUEST)
-    def get_session(
+    def sync_get_session(
         self, 
         session_maker: sessionmaker[Session]
     ) -> Iterable[Session]:
@@ -151,65 +151,26 @@ class AppProvider(Provider):
         scope=Scope.REQUEST,
         provides=interfaces.Cruds
     )
-    """
-    Провайдер интерфейса Cruds.
-
-    Provides:
-        CrudsGateway: Гейтвей для операций CRUD.
-    """
 
     table_optimizer = provide(
         TablesOptimizerGateway,
         scope=Scope.REQUEST,
         provides=interfaces.TablesOptimizer
     )
-    """
-    Провайдер интерфейса TablesOptimizer.
-
-    Provides:
-        TablesOptimizerGateway: Гейтвей для оптимизации таблиц.
-    """
 
     table_response = provide(
         ResponseTableGateway,
         scope=Scope.REQUEST,
         provides=interfaces.ResponseTable
     )
-    """
-    Провайдер интерфейса ResponseTable.
-
-    Provides:
-        ResponseTableGateway: Гейтвей для создания таблиц ответов.
-    """
-
     parser = provide(
         HttpParserGateway,
         scope=Scope.REQUEST,
         provides=interfaces.HttpParser
     )
-    """
-    Провайдер интерфейса HttpParser.
-
-    Provides:
-        HttpParserGateway: Гейтвей для парсинга данных по HTTP.
-    """
-
     save_json_interactor = provide(
         AddJsonInteractor, scope=Scope.REQUEST
     )
-    """
-    Провайдер AddJsonInteractor.
-
-    Provides:
-        AddJsonInteractor: Взаимодействие для обработки JSON данных.
-    """
-
     get_parsed_data_interactor = provide(
         GetParsedDataInteractor, scope=Scope.REQUEST
     )
-    """
-    Провайдер GetParsedDataInteractor.
-
-    Provides:
-        GetParsedDataInteractor: Взаимодействие для получения и обработки данных.
-    """

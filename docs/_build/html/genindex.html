@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Алфавитный указатель &mdash; документация Test Clickhouse 0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=490fdf2e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="#" />
+    <link rel="search" title="Поиск" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Test Clickhouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interactors.html">Интеракторы (application.interactors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/application/interfaces.html">Интерфейсы (application.interfaces)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/http.html">HTTP Контроллеры (controllers.http)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/database.html">Фабрика сессий Clickhouse (infrastructure.database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/gateways.html">Обработчики маршрутов (infrastructure.gateways)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/request.html">Фабрика сессий ClientSession (infrastructure.request)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/infrastructure/types.html">Определение типов (infrastructure.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/config.html">Конфигурация (config)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ioc.html">Конфигурация контейнеров DI (ioc)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/main.html">Запуск веб приложения (main)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_specification.html">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_specification.html#id2">Структура проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Test Clickhouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Алфавитный указатель</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Алфавитный указатель</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.ClientSessionGenerator.__call__">__call__() (метод app.src.application.interfaces.ClientSessionGenerator)</a>
+
+      <ul>
+        <li><a href="modules/application/interfaces.html#app.src.application.interfaces.UrlGetter.__call__">(метод app.src.application.interfaces.UrlGetter)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/application/interactors.html#app.src.application.interactors.AddJsonInteractor">AddJsonInteractor (класс в app.src.application.interactors)</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.RequestsConfig.api_url">api_url (атрибут app.src.config.RequestsConfig)</a>, <a href="modules/config.html#id9">[1]</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.Config.app">app (атрибут app.src.config.Config)</a>, <a href="modules/config.html#id7">[1]</a>
+</li>
+      <li>
+    app.src.application.interactors
+
+      <ul>
+        <li><a href="modules/application/interactors.html#module-app.src.application.interactors">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.application.interfaces
+
+      <ul>
+        <li><a href="modules/application/interfaces.html#module-app.src.application.interfaces">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.config
+
+      <ul>
+        <li><a href="modules/config.html#module-app.src.config">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.controllers.http
+
+      <ul>
+        <li><a href="modules/controllers/http.html#module-app.src.controllers.http">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.controllers.schemas
+
+      <ul>
+        <li><a href="modules/controllers/schemas.html#module-app.src.controllers.schemas">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.infrastructure.database
+
+      <ul>
+        <li><a href="modules/infrastructure/database.html#module-app.src.infrastructure.database">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    app.src.infrastructure.gateways
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#module-app.src.infrastructure.gateways">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.infrastructure.models.tables_creation
+
+      <ul>
+        <li><a href="modules/infrastructure/models/tables_creation.html#module-app.src.infrastructure.models.tables_creation">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.infrastructure.request
+
+      <ul>
+        <li><a href="modules/infrastructure/request.html#module-app.src.infrastructure.request">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.infrastructure.types
+
+      <ul>
+        <li><a href="modules/infrastructure/types.html#module-app.src.infrastructure.types">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.ioc
+
+      <ul>
+        <li><a href="modules/ioc.html#module-app.src.ioc">module</a>
+</li>
+      </ul></li>
+      <li>
+    app.src.main
+
+      <ul>
+        <li><a href="modules/main.html#module-app.src.main">module</a>
+</li>
+      </ul></li>
+      <li><a href="modules/config.html#app.src.config.AppConfig">AppConfig (класс в app.src.config)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider">AppProvider (класс в app.src.ioc)</a>
+</li>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema">AstronautSchema (класс в app.src.controllers.schemas)</a>
+</li>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.Config">AstronautSchema.Config (класс в app.src.controllers.schemas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#app.src.config.Config.clickhouse">clickhouse (атрибут app.src.config.Config)</a>, <a href="modules/config.html#id8">[1]</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.ClickhouseConfig">ClickhouseConfig (класс в app.src.config)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.ClientSessionGenerator">ClientSessionGenerator (класс в app.src.application.interfaces)</a>
+</li>
+      <li><a href="modules/infrastructure/request.html#app.src.infrastructure.request.SessionManager.close_all_sessions">close_all_sessions() (метод app.src.infrastructure.request.SessionManager)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.config">config (атрибут app.src.ioc.AppProvider)</a>, <a href="modules/ioc.html#id0">[1]</a>
+
+      <ul>
+        <li><a href="modules/ioc.html#app.src.ioc.MigrationsProvider.config">(атрибут app.src.ioc.MigrationsProvider)</a>, <a href="modules/ioc.html#id4">[1]</a>
+</li>
+      </ul></li>
+      <li><a href="modules/config.html#app.src.config.Config">Config (класс в app.src.config)</a>
+</li>
+      <li><a href="modules/controllers/http.html#app.src.controllers.http.Controllers">Controllers (класс в app.src.controllers.http)</a>
+</li>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.craft">craft (атрибут app.src.controllers.schemas.AstronautSchema)</a>, <a href="modules/controllers/schemas.html#id0">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_mv_raw_to_parsed">create_mv_raw_to_parsed() (в модуле app.src.infrastructure.models.tables_creation)</a>
+</li>
+      <li><a href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table">create_parsed_table() (в модуле app.src.infrastructure.models.tables_creation)</a>
+</li>
+      <li><a href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table">create_raw_table() (в модуле app.src.infrastructure.models.tables_creation)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.ResponseTable.create_response_table">create_response_table() (метод app.src.application.interfaces.ResponseTable)</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.ResponseTableGateway.create_response_table">(метод app.src.infrastructure.gateways.ResponseTableGateway)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/infrastructure/request.html#app.src.infrastructure.request.SessionManager.create_session">create_session() (метод app.src.infrastructure.request.SessionManager)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.Cruds">Cruds (класс в app.src.application.interfaces)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.cruds_gateway">cruds_gateway (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.CrudsGateway">CrudsGateway (класс в app.src.infrastructure.gateways)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema.data">data (атрибут app.src.controllers.schemas.RawJsonSchema)</a>, <a href="modules/controllers/schemas.html#id4">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#app.src.config.ClickhouseConfig.database">database (атрибут app.src.config.ClickhouseConfig)</a>, <a href="modules/config.html#id2">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/types.html#app.src.infrastructure.types.F">F (класс в app.src.infrastructure.types)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.ResponseTableGateway.format_field">format_field() (метод app.src.infrastructure.gateways.ResponseTableGateway)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/main.html#app.src.main.get_aiohttp_app">get_aiohttp_app() (в модуле app.src.main)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.get_client_session">get_client_session (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.HttpParser.get_data">get_data() (метод app.src.application.interfaces.HttpParser)</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.HttpParserGateway.get_data">(метод app.src.infrastructure.gateways.HttpParserGateway)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.get_parsed_data_interactor">get_parsed_data_interactor (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.Cruds.get_raw_data">get_raw_data() (метод app.src.application.interfaces.Cruds)</a>, <a href="modules/application/interfaces.html#id0">[1]</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.CrudsGateway.get_raw_data">(метод app.src.infrastructure.gateways.CrudsGateway)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.get_request_session">get_request_session (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.Cruds.get_result_table">get_result_table() (метод app.src.application.interfaces.Cruds)</a>, <a href="modules/application/interfaces.html#id1">[1]</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.CrudsGateway.get_result_table">(метод app.src.infrastructure.gateways.CrudsGateway)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.get_session">get_session (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.get_session_maker">get_session_maker (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/application/interactors.html#app.src.application.interactors.GetParsedDataInteractor">GetParsedDataInteractor (класс в app.src.application.interactors)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.hash">hash (атрибут app.src.controllers.schemas.AstronautSchema)</a>, <a href="modules/controllers/schemas.html#id1">[1]</a>
+
+      <ul>
+        <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema.hash">(атрибут app.src.controllers.schemas.RawJsonSchema)</a>, <a href="modules/controllers/schemas.html#id5">[1]</a>
+</li>
+      </ul></li>
+      <li><a href="modules/config.html#app.src.config.AppConfig.host">host (атрибут app.src.config.AppConfig)</a>, <a href="modules/config.html#id0">[1]</a>
+
+      <ul>
+        <li><a href="modules/config.html#app.src.config.ClickhouseConfig.host">(атрибут app.src.config.ClickhouseConfig)</a>, <a href="modules/config.html#id3">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.HttpParser">HttpParser (класс в app.src.application.interfaces)</a>
+</li>
+      <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.HttpParserGateway">HttpParserGateway (класс в app.src.infrastructure.gateways)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.inserted_at">inserted_at (атрибут app.src.controllers.schemas.AstronautSchema)</a>, <a href="modules/controllers/schemas.html#id2">[1]</a>
+
+      <ul>
+        <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema.inserted_at">(атрибут app.src.controllers.schemas.RawJsonSchema)</a>, <a href="modules/controllers/schemas.html#id6">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.main">main() (в модуле app.src.infrastructure.models.tables_creation)</a>
+
+      <ul>
+        <li><a href="modules/main.html#app.src.main.main">(в модуле app.src.main)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/config.html#app.src.config.RetriesConfig.max_retries">max_retries (атрибут app.src.config.RetriesConfig)</a>, <a href="modules/config.html#id10">[1]</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.MigrationsProvider">MigrationsProvider (класс в app.src.ioc)</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.AppConfig.model_config">model_config (атрибут app.src.config.AppConfig)</a>
+
+      <ul>
+        <li><a href="modules/config.html#app.src.config.ClickhouseConfig.model_config">(атрибут app.src.config.ClickhouseConfig)</a>
+</li>
+        <li><a href="modules/config.html#app.src.config.Config.model_config">(атрибут app.src.config.Config)</a>
+</li>
+        <li><a href="modules/config.html#app.src.config.RequestsConfig.model_config">(атрибут app.src.config.RequestsConfig)</a>
+</li>
+        <li><a href="modules/config.html#app.src.config.RetriesConfig.model_config">(атрибут app.src.config.RetriesConfig)</a>
+</li>
+        <li><a href="modules/config.html#app.src.config.TableStyles.model_config">(атрибут app.src.config.TableStyles)</a>
+</li>
+        <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.model_config">(атрибут app.src.controllers.schemas.AstronautSchema)</a>
+</li>
+        <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema.model_config">(атрибут app.src.controllers.schemas.RawJsonSchema)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    module
+
+      <ul>
+        <li><a href="modules/application/interactors.html#module-app.src.application.interactors">app.src.application.interactors</a>
+</li>
+        <li><a href="modules/application/interfaces.html#module-app.src.application.interfaces">app.src.application.interfaces</a>
+</li>
+        <li><a href="modules/config.html#module-app.src.config">app.src.config</a>
+</li>
+        <li><a href="modules/controllers/http.html#module-app.src.controllers.http">app.src.controllers.http</a>
+</li>
+        <li><a href="modules/controllers/schemas.html#module-app.src.controllers.schemas">app.src.controllers.schemas</a>
+</li>
+        <li><a href="modules/infrastructure/database.html#module-app.src.infrastructure.database">app.src.infrastructure.database</a>
+</li>
+        <li><a href="modules/infrastructure/gateways.html#module-app.src.infrastructure.gateways">app.src.infrastructure.gateways</a>
+</li>
+        <li><a href="modules/infrastructure/models/tables_creation.html#module-app.src.infrastructure.models.tables_creation">app.src.infrastructure.models.tables_creation</a>
+</li>
+        <li><a href="modules/infrastructure/request.html#module-app.src.infrastructure.request">app.src.infrastructure.request</a>
+</li>
+        <li><a href="modules/infrastructure/types.html#module-app.src.infrastructure.types">app.src.infrastructure.types</a>
+</li>
+        <li><a href="modules/ioc.html#module-app.src.ioc">app.src.ioc</a>
+</li>
+        <li><a href="modules/main.html#module-app.src.main">app.src.main</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.name">name (атрибут app.src.controllers.schemas.AstronautSchema)</a>, <a href="modules/controllers/schemas.html#id3">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/request.html#app.src.infrastructure.request.new_request_session_maker">new_request_session_maker() (в модуле app.src.infrastructure.request)</a>
+</li>
+      <li><a href="modules/infrastructure/database.html#app.src.infrastructure.database.new_session_maker">new_session_maker() (в модуле app.src.infrastructure.database)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/main.html#app.src.main.on_shutdown">on_shutdown() (в модуле app.src.main)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.TablesOptimizer.optimize_parsed_table">optimize_parsed_table() (метод app.src.application.interfaces.TablesOptimizer)</a>, <a href="modules/application/interfaces.html#id3">[1]</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_parsed_table">(метод app.src.infrastructure.gateways.TablesOptimizerGateway)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.TablesOptimizer.optimize_raw_table">optimize_raw_table() (метод app.src.application.interfaces.TablesOptimizer)</a>, <a href="modules/application/interfaces.html#id4">[1]</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.TablesOptimizerGateway.optimize_raw_table">(метод app.src.infrastructure.gateways.TablesOptimizerGateway)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.parser">parser (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.ClickhouseConfig.password">password (атрибут app.src.config.ClickhouseConfig)</a>, <a href="modules/config.html#id4">[1]</a>
+</li>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.AstronautSchema.Config.populate_by_name">populate_by_name (атрибут app.src.controllers.schemas.AstronautSchema.Config)</a>
+
+      <ul>
+        <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema.Config.populate_by_name">(атрибут app.src.controllers.schemas.RawJsonSchema.Config)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#app.src.config.AppConfig.port">port (атрибут app.src.config.AppConfig)</a>, <a href="modules/config.html#id1">[1]</a>
+
+      <ul>
+        <li><a href="modules/config.html#app.src.config.ClickhouseConfig.port">(атрибут app.src.config.ClickhouseConfig)</a>, <a href="modules/config.html#id5">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema">RawJsonSchema (класс в app.src.controllers.schemas)</a>
+</li>
+      <li><a href="modules/controllers/schemas.html#app.src.controllers.schemas.RawJsonSchema.Config">RawJsonSchema.Config (класс в app.src.controllers.schemas)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.request_config">request_config (атрибут app.src.ioc.AppProvider)</a>, <a href="modules/ioc.html#id1">[1]</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.RequestsConfig">RequestsConfig (класс в app.src.config)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.ResponseTable">ResponseTable (класс в app.src.application.interfaces)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.ResponseTableGateway">ResponseTableGateway (класс в app.src.infrastructure.gateways)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.retries_config">retries_config (атрибут app.src.ioc.AppProvider)</a>, <a href="modules/ioc.html#id2">[1]</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.RetriesConfig">RetriesConfig (класс в app.src.config)</a>
+</li>
+      <li><a href="modules/controllers/http.html#app.src.controllers.http.Controllers.return_table">return_table() (метод app.src.controllers.http.Controllers)</a>
+</li>
+      <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.run_in_thread">run_in_thread() (в модуле app.src.infrastructure.gateways)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.save_json_interactor">save_json_interactor (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/controllers/http.html#app.src.controllers.http.Controllers.save_raw">save_raw() (метод app.src.controllers.http.Controllers)</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.Cruds.save_raw_data">save_raw_data() (метод app.src.application.interfaces.Cruds)</a>, <a href="modules/application/interfaces.html#id2">[1]</a>
+
+      <ul>
+        <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.CrudsGateway.save_raw_data">(метод app.src.infrastructure.gateways.CrudsGateway)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/request.html#app.src.infrastructure.request.SessionManager">SessionManager (класс в app.src.infrastructure.request)</a>
+</li>
+      <li><a href="modules/infrastructure/request.html#app.src.infrastructure.request.SessionManager.sessions">sessions (атрибут app.src.infrastructure.request.SessionManager)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.MigrationsProvider.sync_get_session">sync_get_session (атрибут app.src.ioc.MigrationsProvider)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.MigrationsProvider.sync_get_session_maker">sync_get_session_maker (атрибут app.src.ioc.MigrationsProvider)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/types.html#app.src.infrastructure.types.T">T (класс в app.src.infrastructure.types)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.table_optimizer">table_optimizer (атрибут app.src.ioc.AppProvider)</a>
+</li>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.table_response">table_response (атрибут app.src.ioc.AppProvider)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/ioc.html#app.src.ioc.AppProvider.table_style_response_config">table_style_response_config (атрибут app.src.ioc.AppProvider)</a>, <a href="modules/ioc.html#id3">[1]</a>
+</li>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.TablesOptimizer">TablesOptimizer (класс в app.src.application.interfaces)</a>
+</li>
+      <li><a href="modules/infrastructure/gateways.html#app.src.infrastructure.gateways.TablesOptimizerGateway">TablesOptimizerGateway (класс в app.src.infrastructure.gateways)</a>
+</li>
+      <li><a href="modules/config.html#app.src.config.TableStyles">TableStyles (класс в app.src.config)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/application/interfaces.html#app.src.application.interfaces.UrlGetter">UrlGetter (класс в app.src.application.interfaces)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#app.src.config.ClickhouseConfig.username">username (атрибут app.src.config.ClickhouseConfig)</a>, <a href="modules/config.html#id6">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/config.html#app.src.config.TableStyles.width">width (атрибут app.src.config.TableStyles)</a>, <a href="modules/config.html#id11">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/infrastructure/types.html#app.src.infrastructure.types.Z">Z (класс в app.src.infrastructure.types)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Pavel Kutsia. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

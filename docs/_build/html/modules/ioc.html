@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Конфигурация контейнеров DI (ioc) &mdash; документация Test Clickhouse 0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=490fdf2e"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Запуск веб приложения (main)" href="main.html" />
+    <link rel="prev" title="Конфигурация (config)" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Test Clickhouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="application/interactors.html">Интеракторы (application.interactors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application/interfaces.html">Интерфейсы (application.interfaces)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers/http.html">HTTP Контроллеры (controllers.http)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/models/tables_creation.html"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/models/tables_creation.html#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/database.html">Фабрика сессий Clickhouse (infrastructure.database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/gateways.html">Обработчики маршрутов (infrastructure.gateways)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/request.html">Фабрика сессий ClientSession (infrastructure.request)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/types.html">Определение типов (infrastructure.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Конфигурация (config)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Конфигурация контейнеров DI (ioc)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.ioc.AppProvider"><code class="docutils literal notranslate"><span class="pre">AppProvider</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.config"><code class="docutils literal notranslate"><span class="pre">AppProvider.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.request_config"><code class="docutils literal notranslate"><span class="pre">AppProvider.request_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.retries_config"><code class="docutils literal notranslate"><span class="pre">AppProvider.retries_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.table_style_response_config"><code class="docutils literal notranslate"><span class="pre">AppProvider.table_style_response_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">AppProvider.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.cruds_gateway"><code class="docutils literal notranslate"><span class="pre">AppProvider.cruds_gateway</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.get_client_session"><code class="docutils literal notranslate"><span class="pre">AppProvider.get_client_session</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.get_parsed_data_interactor"><code class="docutils literal notranslate"><span class="pre">AppProvider.get_parsed_data_interactor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.get_request_session"><code class="docutils literal notranslate"><span class="pre">AppProvider.get_request_session</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.get_session"><code class="docutils literal notranslate"><span class="pre">AppProvider.get_session</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.get_session_maker"><code class="docutils literal notranslate"><span class="pre">AppProvider.get_session_maker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.parser"><code class="docutils literal notranslate"><span class="pre">AppProvider.parser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">AppProvider.request_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">AppProvider.retries_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.save_json_interactor"><code class="docutils literal notranslate"><span class="pre">AppProvider.save_json_interactor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.table_optimizer"><code class="docutils literal notranslate"><span class="pre">AppProvider.table_optimizer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.AppProvider.table_response"><code class="docutils literal notranslate"><span class="pre">AppProvider.table_response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">AppProvider.table_style_response_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#app.src.ioc.MigrationsProvider"><code class="docutils literal notranslate"><span class="pre">MigrationsProvider</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.MigrationsProvider.config"><code class="docutils literal notranslate"><span class="pre">MigrationsProvider.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">MigrationsProvider.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.MigrationsProvider.sync_get_session"><code class="docutils literal notranslate"><span class="pre">MigrationsProvider.sync_get_session</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.src.ioc.MigrationsProvider.sync_get_session_maker"><code class="docutils literal notranslate"><span class="pre">MigrationsProvider.sync_get_session_maker</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Запуск веб приложения (main)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_specification.html">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_specification.html#id2">Структура проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Test Clickhouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Конфигурация контейнеров DI (ioc)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/ioc.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-app.src.ioc">
+<span id="di-ioc"></span><h1>Конфигурация контейнеров DI (ioc)<a class="headerlink" href="#module-app.src.ioc" title="Ссылка на этот заголовок"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.ioc.</span></span><span class="sig-name descname"><span class="pre">AppProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseScope</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.src.ioc.AppProvider" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Provider</span></code></p>
+<p>Основной провайдер приложения.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.config" title="Ссылка на это определение"></a></dt>
+<dd><p>Конфигурация приложения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="config.html#app.src.config.Config" title="app.src.config.Config">Config</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.request_config">
+<span class="sig-name descname"><span class="pre">request_config</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.request_config" title="Ссылка на это определение"></a></dt>
+<dd><p>Конфигурация запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="config.html#app.src.config.RequestsConfig" title="app.src.config.RequestsConfig">RequestsConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.retries_config">
+<span class="sig-name descname"><span class="pre">retries_config</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.retries_config" title="Ссылка на это определение"></a></dt>
+<dd><p>Конфигурация повторных попыток запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="config.html#app.src.config.RetriesConfig" title="app.src.config.RetriesConfig">RetriesConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.table_style_response_config">
+<span class="sig-name descname"><span class="pre">table_style_response_config</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.table_style_response_config" title="Ссылка на это определение"></a></dt>
+<dd><p>Конфигурация стилей таблиц.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="config.html#app.src.config.TableStyles" title="app.src.config.TableStyles">TableStyles</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#id0" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.cruds_gateway">
+<span class="sig-name descname"><span class="pre">cruds_gateway</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.cruds_gateway" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.get_client_session">
+<span class="sig-name descname"><span class="pre">get_client_session</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.get_client_session" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.get_parsed_data_interactor">
+<span class="sig-name descname"><span class="pre">get_parsed_data_interactor</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.get_parsed_data_interactor" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.get_request_session">
+<span class="sig-name descname"><span class="pre">get_request_session</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.get_request_session" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.get_session">
+<span class="sig-name descname"><span class="pre">get_session</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.get_session" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.get_session_maker">
+<span class="sig-name descname"><span class="pre">get_session_maker</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.get_session_maker" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.parser">
+<span class="sig-name descname"><span class="pre">parser</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.parser" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">request_config</span></span><a class="headerlink" href="#id1" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">retries_config</span></span><a class="headerlink" href="#id2" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.save_json_interactor">
+<span class="sig-name descname"><span class="pre">save_json_interactor</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.save_json_interactor" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.table_optimizer">
+<span class="sig-name descname"><span class="pre">table_optimizer</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.table_optimizer" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.AppProvider.table_response">
+<span class="sig-name descname"><span class="pre">table_response</span></span><a class="headerlink" href="#app.src.ioc.AppProvider.table_response" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">table_style_response_config</span></span><a class="headerlink" href="#id3" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.src.ioc.MigrationsProvider">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.src.ioc.</span></span><span class="sig-name descname"><span class="pre">MigrationsProvider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseScope</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.src.ioc.MigrationsProvider" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Provider</span></code></p>
+<p>Провайдер для миграций баз данных.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.MigrationsProvider.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#app.src.ioc.MigrationsProvider.config" title="Ссылка на это определение"></a></dt>
+<dd><p>Конфигурация приложения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="config.html#app.src.config.Config" title="app.src.config.Config">Config</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#id4" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.MigrationsProvider.sync_get_session">
+<span class="sig-name descname"><span class="pre">sync_get_session</span></span><a class="headerlink" href="#app.src.ioc.MigrationsProvider.sync_get_session" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.src.ioc.MigrationsProvider.sync_get_session_maker">
+<span class="sig-name descname"><span class="pre">sync_get_session_maker</span></span><a class="headerlink" href="#app.src.ioc.MigrationsProvider.sync_get_session_maker" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="config.html" class="btn btn-neutral float-left" title="Конфигурация (config)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="main.html" class="btn btn-neutral float-right" title="Запуск веб приложения (main)" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Pavel Kutsia. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

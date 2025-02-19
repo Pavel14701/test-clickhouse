@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; документация Test Clickhouse 0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=490fdf2e"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" />
+    <link rel="next" title="Фабрика сессий Clickhouse (infrastructure.database)" href="../database.html" />
+    <link rel="prev" title="Модели валидации ответов (controllers.schemas)" href="../../controllers/schemas.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Test Clickhouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../application/interactors.html">Интеракторы (application.interactors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../application/interfaces.html">Интерфейсы (application.interfaces)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controllers/http.html">HTTP Контроллеры (controllers.http)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controllers/schemas.html">Модели валидации ответов (controllers.schemas)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">create_mv_raw_to_parsed()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#app.src.infrastructure.models.tables_creation.create_parsed_table"><code class="docutils literal notranslate"><span class="pre">create_parsed_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#app.src.infrastructure.models.tables_creation.create_raw_table"><code class="docutils literal notranslate"><span class="pre">create_raw_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#app.src.infrastructure.models.tables_creation.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Фабрика сессий Clickhouse (infrastructure.database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gateways.html">Обработчики маршрутов (infrastructure.gateways)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../request.html">Фабрика сессий ClientSession (infrastructure.request)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Определение типов (infrastructure.types)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config.html">Конфигурация (config)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ioc.html">Конфигурация контейнеров DI (ioc)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../main.html">Запуск веб приложения (main)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Быстрый старт</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../technical_specification.html">Техническое задание</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../technical_specification.html#id2">Структура проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Test Clickhouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/modules/infrastructure/models/tables_creation.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Создание таблиц и материализованых
+представлений Clickhouse (infrastructure.models.tables_creation)
+================================================================</p>
+<dl class="py function" id="module-app.src.infrastructure.models.tables_creation">
+<dt class="sig sig-object py" id="app.src.infrastructure.models.tables_creation.create_mv_raw_to_parsed">
+<span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.models.tables_creation.</span></span><span class="sig-name descname"><span class="pre">create_mv_raw_to_parsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">Session</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_FromComponent</span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">component</span></span><span class="o"><span class="pre">=</span></span><span class="s"><span class="pre">''</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.models.tables_creation.create_mv_raw_to_parsed" title="Ссылка на это определение"></a></dt>
+<dd><p>Создает материализованное представление mv_raw_to_parsed в базе данных ClickHouse,
+если оно не существует, для преобразования данных из raw_table в parsed_table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Depends</em><em>[</em><em>Session</em><em>]</em>) – Сессия SQLAlchemy для выполнения запросов.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.src.infrastructure.models.tables_creation.create_parsed_table">
+<span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.models.tables_creation.</span></span><span class="sig-name descname"><span class="pre">create_parsed_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">Session</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_FromComponent</span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">component</span></span><span class="o"><span class="pre">=</span></span><span class="s"><span class="pre">''</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.models.tables_creation.create_parsed_table" title="Ссылка на это определение"></a></dt>
+<dd><p>Создает таблицу parsed_table в базе данных ClickHouse, если она не существует.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Depends</em><em>[</em><em>Session</em><em>]</em>) – Сессия SQLAlchemy для выполнения запросов.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.src.infrastructure.models.tables_creation.create_raw_table">
+<span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.models.tables_creation.</span></span><span class="sig-name descname"><span class="pre">create_raw_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">Session</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_FromComponent</span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">component</span></span><span class="o"><span class="pre">=</span></span><span class="s"><span class="pre">''</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#app.src.infrastructure.models.tables_creation.create_raw_table" title="Ссылка на это определение"></a></dt>
+<dd><p>Создает таблицу raw_table в базе данных ClickHouse, если она не существует.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Depends</em><em>[</em><em>Session</em><em>]</em>) – Сессия SQLAlchemy для выполнения запросов.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.src.infrastructure.models.tables_creation.main">
+<span class="sig-prename descclassname"><span class="pre">app.src.infrastructure.models.tables_creation.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.src.infrastructure.models.tables_creation.main" title="Ссылка на это определение"></a></dt>
+<dd><p>Основная функция для инициализации конфигурации и создания таблиц и
+представлений в базе данных ClickHouse.</p>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="../../controllers/schemas.html" class="btn btn-neutral float-left" title="Модели валидации ответов (controllers.schemas)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../database.html" class="btn btn-neutral float-right" title="Фабрика сессий Clickhouse (infrastructure.database)" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Pavel Kutsia. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

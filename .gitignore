@@ -1,9 +1,3 @@
-*__pychache__
+*__pycache__
 check_password.sh
-_static
-_build
-_templates
-make.bat
-Makefile
-index.rst
-conf.py
+
